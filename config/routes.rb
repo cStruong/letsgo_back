@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :trips, only: [:create, :index]
   resources :usertrips, only: [:create, :index]
   resources :itineraryitems, only: [:create, :index]
+  post "/users/login", to: "users#login"
 end
