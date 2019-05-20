@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :usertrips, only: [:create, :index]
   resources :itineraryitems, only: [:create, :index]
   post "/users/login", to: "users#login"
+  get "/users/reauthorize", to: "users#reauthorize"
 end

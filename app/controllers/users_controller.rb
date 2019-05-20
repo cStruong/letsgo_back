@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authorized
+    # before_action :authorized, only: [:reauthorize]
 
     def create
         @user = User.create(user_params)
@@ -19,6 +19,10 @@ class UsersController < ApplicationController
         else 
             render json: {error: "Authentication Unsucessful"}
         end
+    end
+
+    def reauthorize
+        render json: {user: UserSerializer.new(current_user)}
     end
 
     private
