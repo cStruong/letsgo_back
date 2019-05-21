@@ -14,10 +14,23 @@ ItineraryItem.destroy_all
 
 admin = User.create(username: 'admin', password: 'test', email: 'test@test.com', first_name: 'chris', last_name: 'truong');
 admin2 = User.create(username: 'admin2', password: 'test', email: 'test2@test2.com', first_name: 'chris2', last_name: 'truong2');
-testtrip = Trip.create(admin_id: admin.id, destination: 'Tokyo');
-testtrip2 = Trip.create(admin_id: admin2.id, destination: 'Seoul');
+user1 = User.create(username: 'user1', password: 'test', email: 'test@test.com', first_name: 'ryan', last_name: 'ho');
+user2 = User.create(username: 'user2', password: 'test', email: 'test@test.com', first_name: 'brian', last_name: 'ryu');
+user3 = User.create(username: 'user3', password: 'test', email: 'test@test.com', first_name: 'simon', last_name: 'mei');
+user4 = User.create(username: 'user4', password: 'test', email: 'test@test.com', first_name: 'james', last_name: 'dorr');
+
+
+
+testtrip = Trip.create(admin_id: admin.id, destination: 'Tokyo', date: '2019-05-31', picture_url: 'https://cdn.cnn.com/cnnnext/dam/assets/170606110126-tokyo-skyline.jpg');
+testtrip2 = Trip.create(admin_id: admin2.id, destination: 'Seoul', date: '2019-06-22', picture_url: 'https://www.webuildvalue.com/static/upload/seo/seoul-megacity-growth-sustainable.jpg');
+
 
 UserTrip.create(user_id: admin.id, trip_id: testtrip.id, total_balance: 1000, paid: 500);
 UserTrip.create(user_id: admin2.id, trip_id: testtrip2.id, total_balance: 100, paid: 50);
+UserTrip.create(user_id: user1.id, trip_id: testtrip.id, total_balance: 1000, paid: 500);
+UserTrip.create(user_id: user2.id, trip_id: testtrip.id, total_balance: 1000, paid: 500);
+UserTrip.create(user_id: user3.id, trip_id: testtrip2.id, total_balance: 100, paid: 50);
+UserTrip.create(user_id: user4.id, trip_id: testtrip2.id, total_balance: 100, paid: 50);
+
 ItineraryItem.create(trip_id: testtrip.id, name: 'Disney Sea')
 ItineraryItem.create(trip_id: testtrip2.id, name: 'Gangnam Style')
