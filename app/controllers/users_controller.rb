@@ -2,8 +2,12 @@ class UsersController < ApplicationController
     # before_action :authorized, only: [:reauthorize]
 
     def create
+        # byebug
         @user = User.create(user_params)
-        render json: @user
+        if @user.valid?
+            token = encode_token({user_id: @user.id})
+            render json: {user: UserSerializer.new(@user), token: token}
+        end
     end
 
     def index
@@ -28,6 +32,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password, :email, :first_name, :last_name, :profile_picture)
+        params.permit(:username, :password, :email, :first_name, :last_name, :profile_picture)
     end
 end
