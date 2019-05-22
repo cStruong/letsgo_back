@@ -14,10 +14,10 @@ ItineraryItem.destroy_all
 
 admin = User.create(username: 'admin', password: 'test', email: 'test@test.com', first_name: 'chris', last_name: 'truong');
 admin2 = User.create(username: 'admin2', password: 'test', email: 'test2@test2.com', first_name: 'chris2', last_name: 'truong2');
-user1 = User.create(username: 'user1', password: 'test', email: 'test@test.com', first_name: 'ryan', last_name: 'ho');
-user2 = User.create(username: 'user2', password: 'test', email: 'test@test.com', first_name: 'brian', last_name: 'ryu');
-user3 = User.create(username: 'user3', password: 'test', email: 'test@test.com', first_name: 'simon', last_name: 'mei');
-user4 = User.create(username: 'user4', password: 'test', email: 'test@test.com', first_name: 'james', last_name: 'dorr');
+user1 = User.create(username: 'user1', password: 'test', email: 'test3@test.com', first_name: 'ryan', last_name: 'ho');
+user2 = User.create(username: 'user2', password: 'test', email: 'test4@test.com', first_name: 'brian', last_name: 'ryu');
+user3 = User.create(username: 'user3', password: 'test', email: 'test5@test.com', first_name: 'simon', last_name: 'mei');
+user4 = User.create(username: 'user4', password: 'test', email: 'test6@test.com', first_name: 'james', last_name: 'dorr');
 
 
 
