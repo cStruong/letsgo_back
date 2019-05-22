@@ -13,6 +13,6 @@ class ItineraryitemsController < ApplicationController
     private
 
     def itineraryitem_params
-        params.require(:itineraryitem).permit(:trip_id, :name, :estimated_cost)
+        params.permit(:trip_id, :name, :estimated_cost)
     end
 end
