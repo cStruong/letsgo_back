@@ -15,7 +15,18 @@ class UsertripsController < ApplicationController
         render json: @usertrip
     end
 
+    def update
+        @usertrip = UserTrip.find_by(id: params[:id])
+        if @usertrip
+            @usertrip.update(paid: params[:paid])
+            render json: @usertrip
+        else
+            render json: {error: 'unable to find that user'}
+        end
+    end
+
     def destroy
+        
         @usertrip = UserTrip.find_by(id: params[:id])
         @usertrip.destroy
 
@@ -25,6 +36,6 @@ class UsertripsController < ApplicationController
     private
 
     def usertrip_params
-        params.require(:usertrip).permit(:user_id, :trip_id, :total_balance, :paid, :id)
+        params.require(:usertrip).permit(:user_id, :trip_id, :paid, :id)
     end
 end

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        if @user.valid?
+        if @user.valid? 
             token = encode_token({user_id: @user.id})
             render json: {user: UserSerializer.new(@user), token: token}
         end
@@ -18,8 +18,8 @@ class UsersController < ApplicationController
         @user = User.find_by(email: params[:email])
         @usertrip = UserTrip.find_by(user_id: @user.id, trip_id: params[:trip_id])
         if @user && !@usertrip
-            UserTrip.create(user_id: @user.id, trip_id: params[:trip_id], total_balance: 0, paid:0)
-            render json: @user 
+            @usertrip = UserTrip.create(user_id: @user.id, trip_id: params[:trip_id], paid:0)
+            render json: [@user, @usertrip]
         else 
             render json: {error: "No existing User by that email or User already in trip."}
         end
