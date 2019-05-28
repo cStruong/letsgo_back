@@ -14,6 +14,16 @@ class UsersController < ApplicationController
         render json: @users
     end
 
+    def update
+        @user = User.find_by(id: params[:id])
+        if @user 
+            @user.update(first_name: params[:firstname], last_name: params[:lastname])
+            render json: @user
+        else 
+            render json: {error: 'user does not exit'}
+        end
+    end
+
     def add
         @user = User.find_by(email: params[:email])
         @usertrip = UserTrip.find_by(user_id: @user.id, trip_id: params[:trip_id])
