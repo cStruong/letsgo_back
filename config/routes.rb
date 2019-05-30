@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post "/users/login", to: "users#login"
   get "/users/reauthorize", to: "users#reauthorize"
   post "/users/add", to: "users#add"
+  post "/trips/yelp", to: "trips#yelp"
 end
