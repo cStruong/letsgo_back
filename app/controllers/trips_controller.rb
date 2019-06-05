@@ -28,7 +28,7 @@ class TripsController < ApplicationController
     def yelp
         @response = HTTParty.get("https://api.yelp.com/v3/businesses/search?&location=#{params[:destination]}", 
             headers: { "Content-Type": "application/json",
-            "Authorization": "Bearer G7HXvAwE-uHKfDN4qZRFWUouvAaBMPmFVH9RewV11CyfPDCVC-TYABMTlk-jyrFTiaGHLAAy47i67HfCms3jvIQSj0DY3Nr-f1Lb0SHBXn_9tUvt68RQP_e8jdDZXHYx"
+            "Authorization": "Bearer API-KEY-HERE"
         }).body
         
         render json: @response
