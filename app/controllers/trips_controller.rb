@@ -16,7 +16,7 @@ class TripsController < ApplicationController
     end
 
     def destroy
-        
+        #6
         @trip = Trip.find_by(id: params[:id])
         @trip.itinerary_items.destroy_all
         @trip.user_trips.destroy_all
@@ -28,7 +28,7 @@ class TripsController < ApplicationController
     def yelp
         @response = HTTParty.get("https://api.yelp.com/v3/businesses/search?&location=#{params[:destination]}", 
             headers: { "Content-Type": "application/json",
-            "Authorization": "Bearer API-KEY-HERE"
+            "Authorization": "Bearer G7HXvAwE-uHKfDN4qZRFWUouvAaBMPmFVH9RewV11CyfPDCVC-TYABMTlk-jyrFTiaGHLAAy47i67HfCms3jvIQSj0DY3Nr-f1Lb0SHBXn_9tUvt68RQP_e8jdDZXHYx"
         }).body
         
         render json: @response
