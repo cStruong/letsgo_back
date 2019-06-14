@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :index, :update]
   resources :trips, only: [:create, :index, :show, :destroy]
   resources :usertrips, only: [:create, :index, :destroy, :show, :update]
+  #11
   resources :itineraryitems, only: [:create, :index, :destroy]
   post "/users/login", to: "users#login"
   get "/users/reauthorize", to: "users#reauthorize"
