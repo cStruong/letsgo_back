@@ -9,7 +9,7 @@
 User.destroy_all
 Trip.destroy_all
 UserTrip.destroy_all
-ItineraryItem.destroy_all
+ExpenseItem.destroy_all
 
 
 admin = User.create(username: 'admin', password: 'test', email: 'test@test.com', first_name: 'chris', last_name: 'truong');
@@ -32,8 +32,8 @@ UserTrip.create(user_id: user2.id, trip_id: testtrip.id);
 UserTrip.create(user_id: user3.id, trip_id: testtrip2.id);
 UserTrip.create(user_id: user4.id, trip_id: testtrip2.id);
 
-ItineraryItem.create(trip_id: testtrip.id, name: 'Disney Sea', estimated_cost: 50)
-ItineraryItem.create(trip_id: testtrip.id, name: 'Tokyo Tower', estimated_cost: 30)
-ItineraryItem.create(trip_id: testtrip.id, name: 'Ichiran Ramen', estimated_cost: 10)
-ItineraryItem.create(trip_id: testtrip.id, name: 'Mario Karting', estimated_cost: 50)
-ItineraryItem.create(trip_id: testtrip2.id, name: 'Gangnam Style', estimated_cost: 30)
+ExpenseItem.create(trip_id: testtrip.id, name: 'Disney Sea', estimated_cost: 50)
+ExpenseItem.create(trip_id: testtrip.id, name: 'Tokyo Tower', estimated_cost: 30)
+ExpenseItem.create(trip_id: testtrip.id, name: 'Ichiran Ramen', estimated_cost: 10)
+ExpenseItem.create(trip_id: testtrip.id, name: 'Mario Karting', estimated_cost: 50)
+ExpenseItem.create(trip_id: testtrip2.id, name: 'Gangnam Style', estimated_cost: 30)

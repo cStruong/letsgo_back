@@ -16,9 +16,8 @@ class TripsController < ApplicationController
     end
 
     def destroy
-        #6
         @trip = Trip.find_by(id: params[:id])
-        @trip.itinerary_items.destroy_all
+        @trip.expense_items.destroy_all
         @trip.user_trips.destroy_all
         @trip.destroy
 
