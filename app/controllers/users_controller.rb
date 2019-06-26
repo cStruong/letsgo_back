@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     def update
         @user = User.find_by(id: params[:id])
         if @user 
-            @user.update(first_name: params[:firstname], last_name: params[:lastname])
+            @user.update(first_name: params[:first_name], last_name: params[:last_name], profile_picture: params[:profile_picture])
             render json: @user
-        else 
+        else
             render json: {error: 'user does not exit'}
         end
     end
