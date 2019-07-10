@@ -1,5 +1,5 @@
 class ExpenseItemSerializer < ActiveModel::Serializer
     belongs_to :trip
     
-    attributes :id, :name, :estimated_cost, :trip_id
+    attributes :id, :name, :estimated_cost, :trip_id, :paid
 end
