@@ -20,6 +20,6 @@ class ExpenseitemsController < ApplicationController
     private
 
     def expenseitem_params
-        params.permit(:trip_id, :name, :estimated_cost, :id)
+        params.permit(:trip_id, :name, :estimated_cost, :id, :paid)
     end
 end
