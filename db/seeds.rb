@@ -29,3 +29,6 @@ ExpenseItem.create(trip_id: testtrip.id, name: 'Tokyo Tower', estimated_cost: 30
 ExpenseItem.create(trip_id: testtrip.id, name: 'Ichiran Ramen', estimated_cost: 10, paid: true)
 ExpenseItem.create(trip_id: testtrip.id, name: 'Mario Karting', estimated_cost: 50, paid: false)
 ExpenseItem.create(trip_id: testtrip2.id, name: 'Gangnam Style', estimated_cost: 30, paid: false)
+
+ItineraryItem.create(trip_id: testtrip.id, name: 'Fish Market')
+ItineraryItem.create(trip_id: testtrip.id, name: 'Tokyo Station')
