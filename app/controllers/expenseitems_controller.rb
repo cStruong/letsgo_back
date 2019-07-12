@@ -10,6 +10,14 @@ class ExpenseitemsController < ApplicationController
         render json: @expenseitems
     end
 
+    def update
+        @expenseitem = ExpenseItem.find_by(id: params[:id])
+            if @expenseitem 
+                @expenseitem.update(paid: params[:paid])
+                render json: @expenseitem
+            end
+    end
+
     def destroy
         @expenseitem = ExpenseItem.find_by(id: params[:id])
         @expenseitem.destroy
