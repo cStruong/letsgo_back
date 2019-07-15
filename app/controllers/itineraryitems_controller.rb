@@ -28,6 +28,6 @@ class ItineraryitemsController < ApplicationController
     private
 
     def itineraryitem_params
-        params.permit(:trip_id, :name, :id)
+        params.permit(:trip_id, :name, :id, :link)
     end
 end
