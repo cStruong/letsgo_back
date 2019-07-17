@@ -1,7 +1,11 @@
 class ItineraryitemsController < ApplicationController
     
     def create
-        @itineraryitem = ItineraryItem.create(itineraryitem_params)
+        checkedLink = httpchecker(params[:link])
+        newParams = itineraryitem_params
+        newParams[:link] = checkedLink
+        
+        @itineraryitem = ItineraryItem.create(newParams)
         render json: @itineraryitem
     end
 
@@ -12,8 +16,9 @@ class ItineraryitemsController < ApplicationController
 
     def update
         @itineraryitem = ItineraryItem.find_by(id: params[:id])
-            if @itineraryitem 
-                @itineraryitem.update(paid: params[:paid])
+            if @itineraryitem
+                checkedLink = httpchecker(params[:link])
+                @itineraryitem.update(name: params[:name], link: checkedLink)
                 render json: @itineraryitem
             end
     end
@@ -30,4 +35,16 @@ class ItineraryitemsController < ApplicationController
     def itineraryitem_params
         params.permit(:trip_id, :name, :id, :link)
     end
+
+    def httpchecker(linkString)
+        lowerStr = linkString.downcase
+        
+        if lowerStr.include?('http://') || lowerStr.include?('https://')
+            return lowerStr
+        else 
+            return 'http://' + lowerStr
+        end 
+    
+    end
+
 end
