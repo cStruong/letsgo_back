@@ -12,7 +12,7 @@ class ExpenseitemsController < ApplicationController
 
     def update
         @expenseitem = ExpenseItem.find_by(id: params[:id])
-            if @expenseitem 
+            if @expenseitem
                 @expenseitem.update(paid: params[:paid])
                 render json: @expenseitem
             end
