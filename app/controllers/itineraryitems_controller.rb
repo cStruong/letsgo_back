@@ -4,7 +4,7 @@ class ItineraryitemsController < ApplicationController
         checkedLink = httpchecker(params[:link])
         newParams = itineraryitem_params
         newParams[:link] = checkedLink
-        
+
         @itineraryitem = ItineraryItem.create(newParams)
         render json: @itineraryitem
     end
@@ -41,7 +41,9 @@ class ItineraryitemsController < ApplicationController
         
         if lowerStr.include?('http://') || lowerStr.include?('https://')
             return lowerStr
-        else 
+        elsif linkString.length === 0
+            return linkString
+        else
             return 'http://' + lowerStr
         end 
     
