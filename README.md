@@ -1,4 +1,3 @@
-# README
 # Let's Go!
 Let's Go! is a Group Trip Budgeting and Planning Application for friends who are want to plan and budget a trip together built using React.js + Redux on the [Frontend](https://github.com/cStruong/letsgo_front) with a Ruby on Rails backend API.
 
