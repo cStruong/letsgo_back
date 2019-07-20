@@ -33,3 +33,16 @@ rails s -p 3005
 ## Site <a name="site"></a>
 ### Example API page
 ![example API page](./assets/exampleAPI.png)
+
+### Example Endpoints
+```
+localhost:3005/trips
+```
+```
+localhost:3005/expenseitems
+```
+```
+localhost:3005/itineraryitems
+```
+
+
