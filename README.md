@@ -17,9 +17,16 @@ This project is created using:
 * [Yelp Fusion API v3](https://www.yelp.com/developers/documentation/v3)
 
 ## Setup / Startup (locally) <a name="setup"></a>
-To run this project locally, while in the project directory run
+To run this project locally, while in the project directory run (make sure PosgreSQL is running)
 ```
 gem install
+```
+then
+```
+rails db:create && rails db:migrate && rails db:seed
+```
+to finally start the server
+ ```
 rails s -p 3005
 ```
 
