@@ -9,7 +9,6 @@ Let's Go! is my Capstone Project inspired to solve a problem me and my friends h
 1. [Technologies](#technologies)
 2. [Setup](#setup)
 3. [Site](#site)
-4. [Acknowlegements](#acknowledgements)
 
 ## Technologies<a name="technologies"></a>
 This project is created using: 
