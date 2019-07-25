@@ -3,9 +3,19 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        if @user.valid? 
+        if @user.valid?
+            @user.save
             token = encode_token({user_id: @user.id})
             render json: {user: UserSerializer.new(@user), token: token}
+        else 
+            errorsArr = []
+            @user.errors.messages.each do |key, value|
+                value.each do |string|
+                    errorsArr.push(string)
+                end
+            end
+            byebug
+            render json: {error: @user.errors.messages}
         end
     end
 
