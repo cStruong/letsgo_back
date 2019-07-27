@@ -2,7 +2,12 @@ class TripsController < ApplicationController
     
     def create
         @trip = Trip.create(trip_params)
-        render json: @trip
+        if @trip && @trip.valid? 
+            render json: @trip
+        else
+            render json: {error: 'Trips must have a destination and date.'}
+        end
+        
     end
 
     def index

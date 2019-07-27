@@ -2,7 +2,22 @@ class ExpenseitemsController < ApplicationController
 
     def create
         @expenseitem = ExpenseItem.create(expenseitem_params)
-        render json: @expenseitem
+        if params[:estimated_cost].to_i >= 0 
+            if @expenseitem && @expenseitem.valid?
+                render json: @expenseitem
+            else
+                errorsArr = []
+                @expenseitem.errors.messages.each do |key, value|
+                    value.each do |string|
+                        errorsArr.push(string)
+                    end
+                end
+                render json: {error: errorsArr}
+            end
+        else
+            @expenseitem.destroy
+            render json: {error: ['Cost cannot be less than zero.']} 
+        end
     end
 
     def index
