@@ -6,7 +6,13 @@ class ItineraryitemsController < ApplicationController
         newParams[:link] = checkedLink
 
         @itineraryitem = ItineraryItem.create(newParams)
-        render json: @itineraryitem
+        
+        if @itineraryitem && @itineraryitem.valid?
+            render json: @itineraryitem
+        else 
+            render json: {error: ['Activity cannot be blank.']}
+        end
+        
     end
 
     def index
