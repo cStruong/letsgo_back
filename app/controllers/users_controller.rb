@@ -54,7 +54,7 @@ class UsersController < ApplicationController
             token = encode_token({user_id: @user.id})
             render json: {user: UserSerializer.new(@user), token: token}
         elsif !@user === true
-            render json: {error: ["User does not exit."]}
+            render json: {error: ["User does not exist."]}
         elsif @user && @user.authenticate(params[:password]) === false
             render json: {error: ["Wrong password."]}
         else
