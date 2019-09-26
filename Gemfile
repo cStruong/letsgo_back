@@ -52,3 +52,5 @@ gem "jwt", "~> 2.1"
 gem 'httparty'
 
 gem "nokogiri", ">= 1.10.4"
+
+gem 'aws-sdk'
