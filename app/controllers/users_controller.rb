@@ -23,14 +23,34 @@ class UsersController < ApplicationController
     end
 
     def update
+        # aws_credentials = Aws::Credentials.new(
+        #     ENV['AWS_ACCESSID'],
+        #     ENV['AWS_ACCESSKEY']
+        # )
+
+        # s3_bucket = Aws::S3::Resource.new(
+        #     region: ENV['AWS_REGION'],
+        #     credentials: aws_credentials
+        # ).bucket(ENV['AWS_BUCKET'])
         @user = User.find_by(id: params[:id])
-        if @user && @user.valid?
-            @user.update(first_name: params[:first_name], last_name: params[:last_name], profile_picture: params[:profile_picture])
-            render json: @user
+        # obj = s3_bucket.object(params[:image_file].original_filename)
+        # obj.upload_file(params[:image_file].tempfile, {acl: 'public-read'})
+        if @user 
+            if params[:first_name] 
+                @user.update(first_name: params[:first_name], last_name: params[:last_name])
+                render json: @user
+            else
+                @user.profile_picture = params[:avatar]
+                @user.save!
+                s3url = @user.profile_picture.url
+                @user.update(profile_picture_url: s3url)
+                render json: @user
+            end
         else
             render json: {error: 'user does not exit'}
         end
     end
+
     #cannot find usertrip if user doesnt exit add conditional for if user exists then find usertrip
     def add
         @user = User.find_by(email: params[:email])

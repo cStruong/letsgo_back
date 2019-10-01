@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :user_trips
     has_many :trips, through: :user_trips
+    mount_uploader :profile_picture, AvatarUploader
 
     validates :username, presence: { message: "Username field cannot be blank." }
     validates :username, uniqueness: { message: "This username is already in use." }
