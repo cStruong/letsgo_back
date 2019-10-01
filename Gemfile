@@ -54,3 +54,7 @@ gem 'httparty'
 gem "nokogiri", ">= 1.10.4"
 
 gem 'aws-sdk'
+
+gem 'carrierwave', '~> 2.0'
+
+gem "fog-aws"
