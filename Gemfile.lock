@@ -849,7 +849,7 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     erubi (1.8.0)
-    excon (0.67.0)
+    excon (0.71.0)
     ffi (1.10.0)
     figaro (1.1.1)
       thor (~> 0.14)
