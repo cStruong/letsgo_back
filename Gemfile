@@ -55,6 +55,6 @@ gem "nokogiri", ">= 1.10.4"
 
 gem 'aws-sdk'
 
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 
 gem "fog-aws"
