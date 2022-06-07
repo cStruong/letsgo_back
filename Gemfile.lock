@@ -881,7 +881,7 @@ GEM
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.13, < 3)
     ipaddress (0.8.3)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     jsonapi-renderer (0.2.0)
     jwt (2.1.0)
     listen (3.1.5)
